@@ -60,4 +60,4 @@ These functions are tested in test_main.py. To make sure github actions is worki
 
 
 ## Outputs
-Query outputs can be seen in `nutrition_analysis.md`. Visit [here](nutrition_analysis.md).
+Query outputs can be seen in `nutrition_analysis.md`. Visit [HERE](nutrition_analysis.md).
