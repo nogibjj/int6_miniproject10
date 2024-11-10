@@ -14,37 +14,49 @@
 |  8 | 1001 | Yes      | Yes        | Yes             |          4 |                4 |           5 |          1 |          1 |            9 |           1 |
 |  9 | 1048 | Yes      | No         | No              |          5 |                3 |           2 |          1 |          1 |            9 |           2 |
 
-## Load Data (First 10 Rows)
+## SQL Query Results
+
+### Query
+```sql
+SELECT 
+        ID, 
+        SODAFREQ, 
+        EGGSFREQ, 
+        FRIESFREQ 
+    FROM Nutrition 
+    WHERE SODAFREQ > 3 
+    ORDER BY SODAFREQ DESC 
+    LIMIT 5
+```
 
 ### Output
-|    |   ID | cancer   | diabetes   | heart_disease   |   EGGSFREQ |   GREENSALADFREQ |   FRIESFREQ |   MILKFREQ |   SODAFREQ |   COFFEEFREQ |   CAKESFREQ |
-|---:|-----:|:---------|:-----------|:----------------|-----------:|-----------------:|------------:|-----------:|-----------:|-------------:|------------:|
-|  0 | 1003 | Yes      | No         | No              |          7 |                7 |           2 |          1 |          7 |            9 |           1 |
-|  1 | 1053 | No       | Yes        | Yes             |          4 |                5 |           5 |          1 |          7 |            8 |           1 |
-|  2 | 1006 | Yes      | Yes        | Yes             |          4 |                6 |           6 |          5 |          8 |            9 |           1 |
-|  3 | 1166 | No       | No         | No              |          7 |                3 |           2 |          2 |          1 |            1 |           7 |
-|  4 | 1134 | Yes      | No         | No              |          5 |                6 |           3 |          1 |          3 |            9 |           1 |
-|  5 | 1014 | No       | No         | No              |          3 |                6 |           5 |          1 |          1 |            8 |           2 |
-|  6 | 1074 | Yes      | No         | No              |          4 |                3 |           2 |          1 |          5 |            9 |           3 |
-|  7 | 1151 | Yes      | No         | Yes             |          7 |                4 |           3 |          3 |          2 |            1 |           3 |
-|  8 | 1001 | Yes      | Yes        | Yes             |          4 |                4 |           5 |          1 |          1 |            9 |           1 |
-|  9 | 1048 | Yes      | No         | No              |          5 |                3 |           2 |          1 |          1 |            9 |           2 |
+|    |   ID |   SODAFREQ |   EGGSFREQ |   FRIESFREQ |
+|---:|-----:|-----------:|-----------:|------------:|
+|  0 | 1138 |          9 |          1 |           3 |
+|  1 | 1071 |          9 |          2 |           5 |
+|  2 | 1034 |          9 |          5 |           4 |
+|  3 | 1054 |          9 |          4 |           4 |
+|  4 | 1006 |          8 |          4 |           6 |
 
-## Load Data (First 10 Rows)
+## SQL Query Results
+
+### Query
+```sql
+SELECT 
+        AVG(EGGSFREQ) as avg_eggs,
+        AVG(GREENSALADFREQ) as avg_salad,
+        AVG(FRIESFREQ) as avg_fries,
+        AVG(MILKFREQ) as avg_milk,
+        AVG(SODAFREQ) as avg_soda,
+        AVG(COFFEEFREQ) as avg_coffee,
+        AVG(CAKESFREQ) as avg_cakes
+    FROM Nutrition
+```
 
 ### Output
-|    |   ID | cancer   | diabetes   | heart_disease   |   EGGSFREQ |   GREENSALADFREQ |   FRIESFREQ |   MILKFREQ |   SODAFREQ |   COFFEEFREQ |   CAKESFREQ |
-|---:|-----:|:---------|:-----------|:----------------|-----------:|-----------------:|------------:|-----------:|-----------:|-------------:|------------:|
-|  0 | 1003 | Yes      | No         | No              |          7 |                7 |           2 |          1 |          7 |            9 |           1 |
-|  1 | 1053 | No       | Yes        | Yes             |          4 |                5 |           5 |          1 |          7 |            8 |           1 |
-|  2 | 1006 | Yes      | Yes        | Yes             |          4 |                6 |           6 |          5 |          8 |            9 |           1 |
-|  3 | 1166 | No       | No         | No              |          7 |                3 |           2 |          2 |          1 |            1 |           7 |
-|  4 | 1134 | Yes      | No         | No              |          5 |                6 |           3 |          1 |          3 |            9 |           1 |
-|  5 | 1014 | No       | No         | No              |          3 |                6 |           5 |          1 |          1 |            8 |           2 |
-|  6 | 1074 | Yes      | No         | No              |          4 |                3 |           2 |          1 |          5 |            9 |           3 |
-|  7 | 1151 | Yes      | No         | Yes             |          7 |                4 |           3 |          3 |          2 |            1 |           3 |
-|  8 | 1001 | Yes      | Yes        | Yes             |          4 |                4 |           5 |          1 |          1 |            9 |           1 |
-|  9 | 1048 | Yes      | No         | No              |          5 |                3 |           2 |          1 |          1 |            9 |           2 |
+|    |   avg_eggs |   avg_salad |   avg_fries |   avg_milk |   avg_soda |   avg_coffee |   avg_cakes |
+|---:|-----------:|------------:|------------:|-----------:|-----------:|-------------:|------------:|
+|  0 |    4.77778 |     5.22222 |     4.03704 |    2.75926 |    4.12963 |      5.88889 |     2.16667 |
 
 ## Data Transformation (First 20 Rows)
 
