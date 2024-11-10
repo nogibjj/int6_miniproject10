@@ -1,3 +1,4 @@
+import os
 from mylib.lib import (
     extract,
     load_data,

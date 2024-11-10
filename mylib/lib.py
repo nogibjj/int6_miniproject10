@@ -81,14 +81,20 @@ def load_data(spark, data="data/Nutrition.csv"):
         .schema(schema) \
         .load(data)
     
-    log_output("Load Data (First 10 Rows)", df.limit(10).toPandas().to_markdown())
+    # Check if file doesn't exist or is empty
+    if not os.path.exists('nutrition_analysis.md') or os.path.getsize('nutrition_analysis.md') == 0:
+        log_output("Load Data (First 10 Rows)", df.limit(10).toPandas().to_markdown())
     return df
+
 
 def query(spark, df, query_string):
     # Register the DataFrame as a temporary view before querying
     df.createOrReplaceTempView("Nutrition")
     result_df = spark.sql(query_string)
+    # Log the query and its results
+    log_output("SQL Query Results", result_df.limit(20).toPandas().to_markdown(), query=query_string)
     return result_df
+
 
 def transform_data(df):
     """Transform the data by adding healthy and unhealthy food totals and health condition flag"""
