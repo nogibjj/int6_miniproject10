@@ -24,7 +24,9 @@ generate_and_push:
 		git config --local user.name "GitHub Action"; \
 		git add .; \
 		git commit -m "Add output log"; \
+		git pull --rebase origin main; \  # Pull and rebase before pushing
 		git push; \
 	else \
 		echo "No changes to commit. Skipping commit and push."; \
 	fi
+
