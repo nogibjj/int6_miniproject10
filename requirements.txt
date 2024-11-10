@@ -22,3 +22,10 @@ seaborn==0.12.2
 pandas-profiling
 pdfkit==1.0.0
 fpdf==1.7.2
+
+# other
+databricks-sql-connector
+databricks
+pyspark
+requests
+ruff
