@@ -38,9 +38,7 @@ def test_query(spark):
     ORDER BY SODAFREQ DESC 
     LIMIT 5"""
     df = load_data(spark)
-    result = query(
-        spark, df, my_query
-    )
+    result = query(spark, df, my_query)
     assert result is not None
 
 
