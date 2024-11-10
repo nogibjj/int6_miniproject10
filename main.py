@@ -11,8 +11,8 @@ from mylib.lib import (
 
 def main():
     # delete nutrition_analysis.md if it exists
-    if os.path.exists('nutrition_analysis.md'):
-        os.remove('nutrition_analysis.md')
+    if os.path.exists("nutrition_analysis.md"):
+        os.remove("nutrition_analysis.md")
     # define queries
     my_query = """SELECT 
         ID, 
