@@ -1,7 +1,31 @@
-# int6_miniproject3
-[![CI](https://github.com/nogibjj/int6_miniproject3/actions/workflows/ci.yml/badge.svg)](https://github.com/nogibjj/int6_miniproject3/actions/workflows/ci.yml)
+# int6_miniproject10
+[![CI](https://github.com/nogibjj/int6_miniproject10/actions/workflows/ci.yml/badge.svg)](https://github.com/nogibjj/int6_miniproject10/actions/workflows/ci.yml)
 
-This repo contains work for mini-project 3. It sets up an environment on codespaces and uses Github Actions to run a Makefile for the following: `make install`, `make test`, `make format`, `make lint`. It loads in a dataset (from Kaggle) that contains information on Spotify sound tracks and performs some basic exploratory data analysis.
+### File Structure
+```
+int6_miniproject10
+├── .devcontainer/
+│   ├── devcontainer.json
+│   └── Dockerfile
+├── .github/
+│   └── workflows/ci.yml
+├── .gitignore
+├── LICENSE
+├── Makefile
+├── README.md
+├── data
+│   └── Nutrition.csv
+├── main.py
+├── mylib
+│   ├── __init__.py
+│   ├── __pycache__
+│   └── lib.py
+├── requirements.txt
+├── nutrition_analysis.md
+├── spark-warehouse
+└── test_main.py
+```
+This repo contains work for mini-project 10. It sets up an environment on codespaces and uses Github Actions to run a Makefile for the following: `make install`, `make test`, `make format`, `make lint`. The dataset was sourced from the [fivethirtyeight github](https://github.com/fivethirtyeight/data/blob/master/nutrition-studies/raw_anonymized_data.csv) and details individuals' health and nutrition information.
 
 Some important components:
 
@@ -14,13 +38,14 @@ Some important components:
 * `githubactions` 
 
 ## Purpose of project
-The purpose of this project is to use polars to generate summary statistics on a dataset. This extends from mini-project 2 that used pandas. The file main.py contains four main functions: 
-* `read_data()`: reads in our data as a pandas dataframe
-* `calc_stats(df)`: calculates summary statistics including mean, median, and standard deviation
-* `create_viz(df)`: creates sample plots using the data
-* `create_report(csv)`: generates a pdf report of the data including basic summary stats and plots
+The purpose of this project is to use PySpark to perform data processing on a large dataset while demonstrating querying and data transformation techniques.
+## Important Functions in lib.py
+* `extract()`: extracts data from github URL, processes it, and saves it as a CSV under the data folder
+* `load_data()`: loads the CSV into a PySpark dataframe
+* `transform_data()`: counts total healthy vs unhealthy food consumption and summarizes health condition to return a new summarized dataframe
+* `query()`: returns a PySpark dataframe based on a given query
 
-These functions are tested in test_main.py. To make sure github actions is working properly, I use a Makefile to test various parts of my code. CI/CD PDF generation is also implemented to automatically push resources.
+These functions are tested in test_main.py. To make sure github actions is working properly, I use a Makefile to test various parts of my code. 
 
 ## Preparation
 1. Open codespaces 
@@ -31,20 +56,8 @@ These functions are tested in test_main.py. To make sure github actions is worki
 2. Lint code `make lint`
 3. Test code `make test`
 
-<img width="600" alt="passing test cases image" src=resources/pass_test.png>
+<img width="600" alt="passing test cases image" src=pass_test.png>
 
 
 ## Outputs
-Summary statistics and data visualizations can be displayed by running `python test_main.py` calling `calc_stats(df)`
-
-<img width="600" alt="showing summary stats image" src=resources/working_stats.png>
-
-
-Data visualizations are saved to a `resources` folder by running `python test_main.py` calling `create_viz(df)`
-
-<img width="600" alt="showing plots image" src=resources/working_plots.png>
-
-
-PDF report is created by running `python test_main.py` calling `create_report(csv)`
-
-<img width="600" alt="showing report image" src=resources/working_report.png>
+Query outputs can be seen in `nutrition_analysis.md`. Visit [here](nutrition_analysis.md).
